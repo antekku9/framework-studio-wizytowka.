@@ -1,0 +1,9 @@
+BEGIN:VCARD
+VERSION:3.0
+N:Kuran;Antoni;;;
+FN:Antoni Kuran
+ORG:Framework Studio
+EMAIL;TYPE=INTERNET,WORK:akuran@frameworkstudio.pl
+TEL;TYPE=CELL,WORK:+48575996200
+URL:https://www.frameworkstudio.pl
+END:VCARD
