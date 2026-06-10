@@ -2,8 +2,8 @@
 <html lang="pl">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="description" content="Antoni Kuran – Framework Studio. Kontakt: akuran@frameworkstudio.pl, +48 575 996 200" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Antoni Kuran, Framework Studio" />
   <meta name="theme-color" content="#111827" />
   <meta property="og:title" content="Antoni Kuran | Framework Studio" />
   <meta property="og:description" content="Kontakt: akuran@frameworkstudio.pl, +48 575 996 200" />
@@ -14,32 +14,65 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg-1:#f8fafc;--bg-2:#e5e7eb;--text:#111827;--muted:#6b7280;--white:#fff;
-      --accent-1:#667eea;--accent-2:#764ba2;--accent-soft:#f3e8ff;--radius:28px;
-      --shadow:0 24px 70px rgba(17,24,39,.18);
+      --bg:#f6f7f9; --text:#111827; --muted:#6b7280; --white:#fff;
+      --accent-1:#667eea; --accent-2:#764ba2; --accent-soft:#f3e8ff;
+      --radius:28px; --shadow:0 24px 70px rgba(17,24,39,.18);
     }
     *{box-sizing:border-box;margin:0;padding:0}
-    html{min-height:100%;-webkit-text-size-adjust:100%}
-    body{min-height:100vh;font-family:"Montserrat",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--text);background:radial-gradient(circle at top left,rgba(102,126,234,.20),transparent 32rem),radial-gradient(circle at bottom right,rgba(118,75,162,.18),transparent 34rem),linear-gradient(135deg,var(--bg-1),var(--bg-2));display:grid;place-items:center;padding:24px}
-    a{color:inherit;text-decoration:none}.page{width:min(100%,480px)}.card-shell{perspective:1200px}
-    .card{position:relative;width:100%;min-height:650px;transform-style:preserve-3d;transition:transform .7s cubic-bezier(.4,0,.2,1);cursor:pointer;animation:appear .65s ease both}
-    @keyframes appear{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+    html,body{min-height:100%}
+    body{
+      font-family:"Montserrat",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      color:var(--text);
+      background:radial-gradient(circle at top left,rgba(102,126,234,.18),transparent 30rem),
+                 radial-gradient(circle at bottom right,rgba(118,75,162,.16),transparent 32rem),
+                 linear-gradient(135deg,#f8fafc,#e5e7eb);
+      display:grid;place-items:center;padding:18px;
+    }
+    a{color:inherit;text-decoration:none}
+    .page{width:min(100%,480px)}
+    .card-shell{perspective:1400px;min-height:640px}
+    .card{
+      position:relative;width:100%;height:640px;transform-style:preserve-3d;
+      transition:transform .7s cubic-bezier(.4,0,.2,1);cursor:pointer;animation:appear .45s ease both;
+    }
     .card.is-flipped{transform:rotateY(180deg)}
-    .card-face{position:absolute;inset:0;min-height:650px;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);backface-visibility:hidden}
-    .card-front{background:linear-gradient(135deg,var(--accent-1),var(--accent-2));color:var(--white);padding:34px;display:flex;flex-direction:column;justify-content:space-between}
-    .card-front::before,.card-front::after{content:"";position:absolute;border-radius:999px;background:rgba(255,255,255,.16);filter:blur(18px)}
-    .card-front::before{width:190px;height:190px;top:-70px;right:-40px}.card-front::after{width:240px;height:240px;bottom:-100px;left:-90px}
-    .front-content,.front-footer,.back-content,.actions,.back-footer{position:relative;z-index:1}
-    .logo-text{width:100%;max-width:360px;margin:8px 0 40px;line-height:.9;color:#fff;user-select:none}
-    .logo-line{display:block;text-transform:uppercase}.logo-line.bold{font-size:clamp(55px,14vw,86px);font-weight:900;letter-spacing:-.045em}.logo-line.light{margin-top:10px;font-size:clamp(36px,9vw,58px);font-weight:300;letter-spacing:.085em;transform:scaleX(1.04);transform-origin:left center}
-    .person-name{font-size:28px;line-height:1.15;font-weight:800;margin-bottom:10px}.role{font-size:15px;line-height:1.65;opacity:.82;max-width:360px}.front-footer{display:flex;align-items:end;justify-content:space-between;gap:18px}.tagline{font-size:14px;line-height:1.55;opacity:.84}.tap-label{font-size:12px;opacity:.64;white-space:nowrap}
-    .card-back{transform:rotateY(180deg);background:var(--white);padding:30px;display:flex;flex-direction:column;justify-content:space-between;gap:22px}
-    .card-back::before{content:"";position:absolute;top:0;right:0;width:180px;height:180px;background:linear-gradient(135deg,rgba(102,126,234,.18),rgba(118,75,162,.16));border-bottom-left-radius:100%}
-    .section-label{color:var(--muted);font-size:13px;text-transform:uppercase;letter-spacing:.16em;font-weight:800;margin-bottom:10px}.contact-title{font-size:30px;line-height:1.15;font-weight:900;letter-spacing:-.04em;margin-bottom:22px}
-    .contact-list{display:grid;gap:12px}.contact-link{display:flex;align-items:center;gap:12px;padding:14px 15px;border:1px solid #eef0f4;border-radius:16px;background:#fbfbfd;transition:transform .2s ease,border-color .2s ease,background .2s ease}.contact-link:hover,.contact-link:focus-visible{transform:translateY(-2px);border-color:#ddd6fe;background:#fff;outline:none}.icon{width:22px;height:22px;flex:0 0 auto;color:#6d28d9}.contact-text{min-width:0}.contact-type{display:block;color:var(--muted);font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.12em;margin-bottom:3px}.contact-value{display:block;font-size:14px;font-weight:700;overflow-wrap:anywhere}
-    .actions{display:grid;gap:10px}.button{display:flex;justify-content:center;align-items:center;min-height:48px;border-radius:999px;font-size:14px;font-weight:900;letter-spacing:-.01em;transition:transform .2s ease,box-shadow .2s ease}.button:hover,.button:focus-visible{transform:translateY(-2px);outline:none}.button-primary{color:#fff;background:linear-gradient(135deg,var(--accent-1),var(--accent-2));box-shadow:0 14px 30px rgba(118,75,162,.22)}.button-secondary{color:#5b21b6;background:var(--accent-soft)}
-    .back-footer,.hint{text-align:center;color:var(--muted);font-size:12px;line-height:1.5}.hint{font-size:13px;margin-top:18px}
-    @media(max-width:520px){body{padding:14px}.card,.card-face{min-height:625px}.card-front,.card-back{padding:26px}.front-footer{display:block}.tap-label{display:block;margin-top:18px}.logo-line.bold{font-size:clamp(52px,16vw,72px)}.logo-line.light{font-size:clamp(34px,10vw,48px)}}
+    .card-face{
+      position:absolute;inset:0;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);
+      backface-visibility:hidden;-webkit-backface-visibility:hidden;
+    }
+    .card-front{
+      background:linear-gradient(135deg,var(--accent-1),var(--accent-2));color:var(--white);
+      padding:34px 30px;display:flex;flex-direction:column;justify-content:space-between;align-items:center;text-align:center;
+    }
+    .card-front:before,.card-front:after{content:"";position:absolute;border-radius:999px;background:rgba(255,255,255,.17);filter:blur(18px)}
+    .card-front:before{width:190px;height:190px;top:-70px;right:-40px}.card-front:after{width:240px;height:240px;bottom:-100px;left:-90px}
+    .front-top,.front-bottom{position:relative;z-index:1;width:100%;display:grid;place-items:center}
+
+    /* Tekstowe logo odtworzone z grafiki: całość centrowana w kwadracie */
+    .logo-mark{
+      width:min(78vw,318px);height:min(78vw,318px);display:flex;flex-direction:column;align-items:center;justify-content:center;
+      margin:0 auto 18px auto;line-height:.86;color:#fff;text-align:center;
+    }
+    .logo-line{display:block;width:100%;text-align:center;white-space:nowrap}
+    .logo-line.strong{font-weight:900;font-size:clamp(54px,15vw,88px);letter-spacing:.015em;transform:scaleX(1.08)}
+    .logo-line.thin{font-weight:300;font-size:clamp(38px,10.5vw,60px);letter-spacing:.075em;transform:scaleX(1.02);margin-top:18px}
+    .person-name{font-size:27px;line-height:1.15;font-weight:800;letter-spacing:-.04em;margin-top:-4px}
+    .role{font-size:14px;line-height:1.55;opacity:.82;max-width:350px;margin-top:8px}
+    .tagline{font-size:14px;line-height:1.55;opacity:.86;margin-bottom:14px}.tap-label{font-size:12px;opacity:.66}
+
+    .card-back{
+      transform:rotateY(180deg);background:var(--white);padding:30px;display:flex;flex-direction:column;justify-content:space-between;gap:20px;
+    }
+    .card-back:before{content:"";position:absolute;top:0;right:0;width:180px;height:180px;background:linear-gradient(135deg,rgba(102,126,234,.18),rgba(118,75,162,.16));border-bottom-left-radius:100%}
+    .back-content,.actions,.back-footer{position:relative;z-index:1}.section-label{color:var(--muted);font-size:13px;text-transform:uppercase;letter-spacing:.16em;font-weight:800;margin-bottom:10px}
+    .contact-title{font-size:30px;line-height:1.15;font-weight:900;letter-spacing:-.04em;margin-bottom:22px}.contact-list{display:grid;gap:12px}
+    .contact-link{display:flex;align-items:center;gap:12px;padding:14px 15px;border:1px solid #eef0f4;border-radius:16px;background:#fbfbfd;transition:transform .2s ease,border-color .2s ease,background .2s ease}
+    .contact-link:hover,.contact-link:focus-visible{transform:translateY(-2px);border-color:#ddd6fe;background:#fff;outline:none}.icon{width:22px;height:22px;flex:0 0 auto;color:#6d28d9}.contact-text{min-width:0}.contact-type{display:block;color:var(--muted);font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.12em;margin-bottom:3px}.contact-value{display:block;font-size:14px;font-weight:700;overflow-wrap:anywhere}
+    .actions{display:grid;gap:10px}.button{display:flex;justify-content:center;align-items:center;min-height:48px;border-radius:999px;font-size:14px;font-weight:900;transition:transform .2s ease,box-shadow .2s ease}.button:hover,.button:focus-visible{transform:translateY(-2px);outline:none}.button-primary{color:var(--white);background:linear-gradient(135deg,var(--accent-1),var(--accent-2));box-shadow:0 14px 30px rgba(118,75,162,.22)}.button-secondary{color:#5b21b6;background:var(--accent-soft)}
+    .back-footer,.hint{text-align:center;color:var(--muted);font-size:12px;line-height:1.5}.hint{margin-top:18px;font-size:13px}
+    @keyframes appear{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+    @media(max-width:520px){body{padding:14px}.card-shell{min-height:620px}.card{height:620px}.card-front,.card-back{padding:26px}.logo-mark{width:min(80vw,288px);height:min(80vw,288px)}.logo-line.thin{margin-top:14px}.person-name{font-size:25px}}
+    @media(max-width:370px){.card{height:600px}.card-shell{min-height:600px}.logo-mark{width:246px;height:246px}.logo-line.strong{font-size:62px}.logo-line.thin{font-size:42px}.contact-link{padding:12px}.contact-title{font-size:27px}}
   </style>
 </head>
 <body>
@@ -47,17 +80,17 @@
     <section class="card-shell" aria-live="polite">
       <article class="card" id="businessCard" role="button" tabindex="0" aria-label="Wizytówka Framework Studio. Kliknij, aby odwrócić.">
         <div class="card-face card-front">
-          <div class="front-content">
-            <div class="logo-text" aria-label="Framework Studio">
-              <span class="logo-line bold">FRAME</span>
-              <span class="logo-line bold">WORK</span>
-              <span class="logo-line light">STUDIO</span>
+          <div class="front-top">
+            <div class="logo-mark" aria-label="Framework Studio">
+              <span class="logo-line strong">FRAME</span>
+              <span class="logo-line strong">WORK</span>
+              <span class="logo-line thin">STUDIO</span>
             </div>
             <p class="person-name">Antoni Kuran</p>
-            <p class="role">Fotografia produktowa • strony WWW • branding • materiały reklamowe</p>
+            <p class="role">Founder &amp; Creative Director</p>
           </div>
-          <div class="front-footer">
-            <p class="tagline">Digital design, web, content<br />i nowoczesna komunikacja marki.</p>
+          <div class="front-bottom">
+            <p class="tagline">Digital design, web, content<br>i nowoczesna komunikacja marki.</p>
             <span class="tap-label">Kliknij / dotknij</span>
           </div>
         </div>
@@ -66,9 +99,18 @@
             <p class="section-label">Kontakt</p>
             <h2 class="contact-title">Antoni Kuran</h2>
             <div class="contact-list">
-              <a class="contact-link" href="mailto:akuran@frameworkstudio.pl" onclick="event.stopPropagation()"><svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg><span class="contact-text"><span class="contact-type">Mail</span><span class="contact-value">akuran@frameworkstudio.pl</span></span></a>
-              <a class="contact-link" href="tel:+48575996200" onclick="event.stopPropagation()"><svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg><span class="contact-text"><span class="contact-type">Telefon</span><span class="contact-value">+48 575 996 200</span></span></a>
-              <a class="contact-link" href="https://www.frameworkstudio.pl" target="_blank" rel="noopener" onclick="event.stopPropagation()"><svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg><span class="contact-text"><span class="contact-type">WWW</span><span class="contact-value">www.frameworkstudio.pl</span></span></a>
+              <a class="contact-link" href="mailto:akuran@frameworkstudio.pl" onclick="event.stopPropagation()">
+                <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+                <span class="contact-text"><span class="contact-type">Mail</span><span class="contact-value">akuran@frameworkstudio.pl</span></span>
+              </a>
+              <a class="contact-link" href="tel:+48575996200" onclick="event.stopPropagation()">
+                <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+                <span class="contact-text"><span class="contact-type">Telefon</span><span class="contact-value">+48 575 996 200</span></span>
+              </a>
+              <a class="contact-link" href="https://www.frameworkstudio.pl" target="_blank" rel="noopener" onclick="event.stopPropagation()">
+                <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" /></svg>
+                <span class="contact-text"><span class="contact-type">WWW</span><span class="contact-value">www.frameworkstudio.pl</span></span>
+              </a>
             </div>
           </div>
           <div class="actions" onclick="event.stopPropagation()">
@@ -83,8 +125,9 @@
   </main>
   <script>
     const card=document.querySelector('#businessCard');
-    function toggleCard(){card.classList.toggle('is-flipped');const isFlipped=card.classList.contains('is-flipped');card.setAttribute('aria-label',isFlipped?'Tył wizytówki Framework Studio. Kliknij, aby wrócić.':'Wizytówka Framework Studio. Kliknij, aby odwrócić.');}
-    card.addEventListener('click',toggleCard);card.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();toggleCard();}});
+    function toggleCard(){card.classList.toggle('is-flipped');const flipped=card.classList.contains('is-flipped');card.setAttribute('aria-label',flipped?'Tył wizytówki Framework Studio. Kliknij, aby wrócić.':'Wizytówka Framework Studio. Kliknij, aby odwrócić.');}
+    card.addEventListener('click',toggleCard);
+    card.addEventListener('keydown',(event)=>{if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleCard();}});
   </script>
 </body>
 </html>
